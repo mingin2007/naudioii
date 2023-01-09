@@ -6,7 +6,15 @@
     <title>Διάβασέ το!</title>
   </head>
   <body>
-    <h1>This is index page!</h1>
-    <p>this is a file name: <%= files[0] %></p>
+    
+  <% if(!files) { %>
+    <p>Δε βρέθηκαν λέξεις!</p>
+    <% } else {
+      
+      files.forEach(file => { %>
+        <li><%= file %>.</li>
+        <% }); %>  
+    
+      <% } %>
   </body>
 </html>
