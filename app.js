@@ -9,7 +9,8 @@ const port = 3000;
 app.use(express.static('public'));
 app.set("view engine", "ejs");
 
-let files = ["file1", "file2", "file3", "file4"];
+let files = fs.readdirSync('./JSON/', {encoding: "utf-8"});
+console.log(files);
 
 app.get("/test", (req, res) => {
     res.render("index", {files: files}); // index refers to index.ejs

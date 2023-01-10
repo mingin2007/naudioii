@@ -9,12 +9,13 @@
     
   <% if(!files) { %>
     <p>Δε βρέθηκαν λέξεις!</p>
-    <% } else {
-      
-      files.forEach(file => { %>
-        <li><%= file %>.</li>
+    <% } else { %>
+      <select>
+        <option></option>
+      <% files.forEach(file => { %>
+        <option><%= file %></option>
         <% }); %>  
-    
+      </select>  
       <% } %>
   </body>
 </html>
