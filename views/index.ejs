@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Διάβασέ το!</title>
+    <script src="index.js"></script>
   </head>
   <body>
     
   <% if(!files) { %>
     <p>Δε βρέθηκαν λέξεις!</p>
     <% } else { %>
-      <select>
+      <select id="file-select">
         <option></option>
       <% files.forEach(file => { %>
         <option><%= file %></option>
