@@ -55,3 +55,14 @@ span{
 .wrong{
     background-color: red;
 }
+
+#screen{
+position: absolute;
+opacity: 0.9;
+background-color: rgb(39, 39, 36);
+
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+} 

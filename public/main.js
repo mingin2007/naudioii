@@ -1,4 +1,7 @@
 
+    var words =  [["01-κάστρο.ogg", "κάστρο", "κάδρο", "άστρο"],
+    ["02-κάστανο.ogg", "κάστανο", "κάστορας", "βάσανο"]];
+    
     words.sort(()=> Math.random() - 0.5);
 
     var rep = document.querySelector("#replay");
