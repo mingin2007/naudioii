@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Άκουσέ το!</title>
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="styles.css">
+        <script type= "module" src="main.js"></script>
+    </head>
+
+    <body>
+       
+        <button id="replay">&#8635;</button>
+        <div id="top-div"><span>άκουσέ το... </span></div>
+        <button id="left" class="words">Κλικ στο &rArr;</button>
+        <button id="middle" class="words">κάτω δεξιά</button>
+        <button id="right" class="words">για να αρχίσεις!</button>
+        <div id="bot-div"><span>άκουσέ το... </span></div>
+        <button id="next">&rArr;</button>
+
+        <div id="screen">
+            <div id="select-div">
+                <label for="quest-select">Διαλέξε λέξεις:</label>
+                
+                <% if(!files) { %>
+                    <p>Δε βρέθηκαν λέξεις!</p>
+                    <% } else { %>
+                      <select id="quest-select">
+                        <option></option>
+                      <% files.forEach(file => { %>
+                        <option><%= file %></option>
+                        <% }); %>  
+                      </select>  
+                      <% } %>
+                
+                
+                <button id="submit-selection">OK!</button>
+            </div>
+        </div>
+        
+        <audio id="ans-aud">
+            <source type="audio/mpeg">
+        </audio>
+        <audio id="word-aud">
+            <source type="audio/mpeg">
+        </audio>
+    </body>
+</html>

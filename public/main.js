@@ -1,14 +1,24 @@
 
     window.onload = function(){
-        fetch('http://localhost:3000/', { mode: 'no-cors' })
-        .then((response) => response.text())
-        .then((data) => console.log(data));
-      
+       
         
-        var words =  [["01-κάστρο.ogg", "κάστρο", "κάδρο", "άστρο"],
-        ["02-κάστανο.ogg", "κάστανο", "κάστορας", "βάσανο"]];
+        var words =  [];
         
-        words.sort(()=> Math.random() - 0.5);
+        document.getElementById("submit-selection").onclick = function(){
+            var sel = document.getElementById("quest-select").options[document.getElementById("quest-select").selectedIndex].text;
+            
+            var url = 'http://localhost:3000/JSON/' + sel;
+           // alert(url);
+            fetch(url, { mode: 'no-cors' })
+                .then((res) => res.json())
+            .then((data)=> {words = data; words.sort(()=> Math.random() - 0.5);});
+
+        document.getElementById("screen").style.visibility = 'hidden';
+        }
+
+        console.log("b4 " + words);
+
+        console.log("after " + words);
     
         var rep = document.querySelector("#replay");
         var next = document.querySelector("#next");
@@ -48,6 +58,12 @@
             playing = 1;
             let elmn = words.pop(); 
             audWord.src = "./audio/" + elmn[0];
+            let textSize = Math.max(elmn[1].length, elmn[2].length, elmn[2].length);
+            console.log(textSize);
+            [...document.getElementsByClassName("words")].forEach(element => {
+                element.style.fontSize = (6-(textSize/5))+"vw";
+            });
+
             let selector = Math.random();
             if(selector>0.67){
                 left.textContent = elmn[1];
