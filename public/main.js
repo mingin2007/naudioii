@@ -11,7 +11,7 @@
            // alert(url);
             fetch(url, { mode: 'no-cors' })
                 .then((res) => res.json())
-                .then((data)=>{words = data; console.log(data)});
+                .then((data)=> words = data);
 
         document.getElementById("screen").style.visibility = 'hidden';
         }
@@ -57,6 +57,12 @@
             playing = 1;
             let elmn = words.pop(); 
             audWord.src = "./audio/" + elmn[0];
+            let textSize = Math.max(elmn[1].length, elmn[2].length, elmn[2].length);
+            console.log(textSize);
+            [...document.getElementsByClassName("words")].forEach(element => {
+                element.style.fontSize = ((1/textSize)*30)+"vw";
+            });
+
             let selector = Math.random();
             if(selector>0.67){
                 left.textContent = elmn[1];
