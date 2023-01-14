@@ -58,11 +58,30 @@ span{
 
 #screen{
 position: absolute;
-opacity: 0.9;
-background-color: rgb(39, 39, 36);
-
+background-color: rgba(39, 39, 36, 0.9);
+display: flex;
+justify-content: center;
+align-items: center;
 top: 0px;
 left: 0px;
 right: 0px;
 bottom: 0px;
 } 
+
+#select-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: aliceblue;
+    border-radius: 12px;
+    border: 10px solid rgb(101, 38, 178);
+    height: 30%;
+    width: 40%;
+
+}
+
+#submit-selection{
+    display: block;
+}
