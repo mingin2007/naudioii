@@ -1,13 +1,22 @@
 
     window.onload = function(){
-        fetch('http://localhost:3000/', { mode: 'no-cors' })
-        .then((response) => response.text())
-        .then((data) => console.log(data));
-      
+       
         
-        var words =  [["01-κάστρο.ogg", "κάστρο", "κάδρο", "άστρο"],
-        ["02-κάστανο.ogg", "κάστανο", "κάστορας", "βάσανο"]];
+        var words =  [];
         
+        document.getElementById("submit-selection").onclick = function(){
+            var sel = document.getElementById("quest-select").options[document.getElementById("quest-select").selectedIndex].text;
+            
+            var url = 'http://localhost:3000/JSON/' + sel;
+           // alert(url);
+            fetch(url, { mode: 'no-cors' })
+                .then((res) => res.json())
+                .then((data)=>{words = data; console.log(data)});
+
+        document.getElementById("screen").style.visibility = 'hidden';
+        }
+
+
         words.sort(()=> Math.random() - 0.5);
     
         var rep = document.querySelector("#replay");

@@ -9,7 +9,7 @@ const port = 3000;
 app.use(express.static('public'));
 app.set("view engine", "ejs");
 
-let files = fs.readdirSync('./JSON/', {encoding: "utf-8"});
+let files = fs.readdirSync('./public/JSON/', {encoding: "utf-8"});
 console.log(files);
 
 app.get('/', (req, res)=>{
@@ -19,7 +19,7 @@ app.get('/', (req, res)=>{
 });
 
 app.get("/test", (req, res) => {
-    res.render("index", {files: files}); // index refers to index.ejs
+    res.render("select", {files: files}); // index refers to index.ejs
    });
 
 
