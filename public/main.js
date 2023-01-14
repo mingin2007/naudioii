@@ -11,13 +11,14 @@
            // alert(url);
             fetch(url, { mode: 'no-cors' })
                 .then((res) => res.json())
-                .then((data)=> words = data);
+            .then((data)=> {words = data; words.sort(()=> Math.random() - 0.5);});
 
         document.getElementById("screen").style.visibility = 'hidden';
         }
 
+        console.log("b4 " + words);
 
-        words.sort(()=> Math.random() - 0.5);
+        console.log("after " + words);
     
         var rep = document.querySelector("#replay");
         var next = document.querySelector("#next");
@@ -60,7 +61,7 @@
             let textSize = Math.max(elmn[1].length, elmn[2].length, elmn[2].length);
             console.log(textSize);
             [...document.getElementsByClassName("words")].forEach(element => {
-                element.style.fontSize = ((1/textSize)*30)+"vw";
+                element.style.fontSize = (6-(textSize/5))+"vw";
             });
 
             let selector = Math.random();
